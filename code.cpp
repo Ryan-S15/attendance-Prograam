@@ -8,21 +8,21 @@ int main() {
 
     // List of all student names
     vector<string> names = {
-        "Envy Brown",
-        "Ilyas Devaux",
-        "Damon Diulio",
-        "Hamir Griffith",
-        "Anthony Landritsi",
-        "Bode Lentz",
-        "George Louglos",
-        "Jordan Mckenzie",
-        "Christopher Richter",
-        "Caleb Roswell",
-        "Seth Scott",
-        "Tiahna Spencer",
-        "Bailin Stokes",
-        "Elijah Verdaguer",
-        "Connor Wentworth"
+        "Envy",
+        "Ilyas",
+        "Damon",
+        "Hamir",
+        "Anthony",
+        "Bode",
+        "George",
+        "Jordan",
+        "Christopher",
+        "Caleb",
+        "Seth",
+        "Tiahna",
+        "Bailin",
+        "Elijah",
+        "Connor"
     };
 
     // Stores attendance results
