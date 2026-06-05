@@ -30,7 +30,7 @@ int main() {
 
     // Variables
     string date;
-    int fail;
+    string input;
     int attendances;
     bool validDate;
 
@@ -56,46 +56,45 @@ int main() {
     // Go through every student in the list
     for (int x = 0; x < names.size(); x++) {
 
-        do {
+        bool validInput = false;
 
-            // Reset fail value
-            fail = 0;
+        while (!validInput) {
 
             // Ask if the student is present
             cout << "Is " << names[x] << " present? yes(1) no(2)\n";
-            cin >> attendances;
+            cin >> input;
 
-            // If student is present
-            if (attendances == 1) {
+            // Check if input is exactly "1" or "2"
+            if (input == "1" || input == "2") {
+                attendances = stoi(input);
+                validInput = true;
 
-                // Write to file
-                MyFile << names[x] << ", attendance: present\n";
+                // If student is present
+                if (attendances == 1) {
 
-                // Save attendance in vector
-                attendance.push_back(", attendance: present\n");
+                    // Write to file
+                    MyFile << names[x] << ", attendance: present\n";
+
+                    // Save attendance in vector
+                    attendance.push_back(", attendance: present\n");
+                }
+
+                // If student is absent
+                else if (attendances == 2) {
+
+                    // Write to file
+                    MyFile << names[x] << ", attendance: absent\n";
+
+                    // Save attendance in vector
+                    attendance.push_back(", attendance: absent\n");
+                }
             }
 
-            // If student is absent
-            else if (attendances == 2) {
-
-                // Write to file
-                MyFile << names[x] << ", attendance: absent\n";
-
-                // Save attendance in vector
-                attendance.push_back(", attendance: absent\n");
-            }
-
-            // If user enters wrong number
+            // If user enters wrong input
             else {
-
-                // Error message
                 cout << "Invalid input, try again\n";
-
-                // Makes loop repeat
-                fail++;
             }
-
-        } while (fail == 1); // Repeat if input was invalid
+        }
     }
 
     // Print blank line
