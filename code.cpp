@@ -32,10 +32,23 @@ int main() {
     string date;
     int fail;
     int attendances;
+    bool validDate;
 
     // Ask user for the date
-    cout << "Enter date as month-day-year\n";
-    cin >> date;
+    do {
+        validDate = true;
+        cout << "Enter date as month-day-year\n";
+        cin >> date;
+
+        // Check if date contains slashes
+        for (char c : date) {
+            if (c == '/') {
+                cout << "Invalid input, slashes are not allowed. Use hyphens instead.\n";
+                validDate = false;
+                break;
+            }
+        }
+    } while (!validDate);
 
     // Create text file using the date
     ofstream MyFile(date + ".txt");
